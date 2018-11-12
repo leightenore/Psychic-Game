@@ -20,6 +20,8 @@ document.onkeyup = function(event) {
         alert("You Win!");
         wins++;
         guesses = 10;
+        computerChoice = letters[Math.floor(Math.random() * letters.length)];
+        console.log(computerChoice);
     }
 
     else if (userGuess !== computerChoice) {
@@ -30,6 +32,8 @@ document.onkeyup = function(event) {
         alert("Game Over! You Lose!");
         losses++;
         guesses = 10;
+        computerChoice = letters[Math.floor(Math.random() * letters.length)];
+        console.log(computerChoice);
     }
 
     document.getElementById("directions-text").textContent = " ";
@@ -41,4 +45,3 @@ document.onkeyup = function(event) {
     };
 
     //need to record multiple letter guesses
-    //need to run function again so computer chooses a new letter when game is over
