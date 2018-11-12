@@ -4,14 +4,17 @@ var wins = 0;
 var losses = 0;
 var guesses = 10;
 
-// var winsNumber = document.getElementById("winsNumber");
-// var lossesNumber = document.getElementById("lossesNumber");
-// var guessesNumber = document.getElementById("guessesNumber");
-// var guessesLetter = document.getElementById("guessesLetter");
+//computer chooses a random letter
+var computerChoice = letters[Math.floor(Math.random() * letters.length)];
 
+console.log(computerChoice);
+
+//event: user presses a key
 document.onkeyup = function(event) {
     var userGuess = event.key;
-    var computerChoice = letters[Math.floor(Math.random() * letters.length)];
+    var lettersGuessed = [];
+    lettersGuessed.push(userGuess);
+
 
     if (userGuess === computerChoice) {
         alert("You Win!");
@@ -33,9 +36,9 @@ document.onkeyup = function(event) {
     document.getElementById("winsNumber").textContent = "Wins: " + wins;
     document.getElementById("lossesNumber").textContent = "Losses: " + losses;
     document.getElementById("guessesNumber").textContent = "Number of Guesses Left: " + guesses;
-    document.getElementById("guessesLetter").textContent = "Letters Guessed: " + event.key;
+    document.getElementById("guessesLetter").textContent = "Letters Guessed: " +  lettersGuessed.join(',');
 
     };
 
-    //need to record letters guess
-    //need to call the function so that the computer only guesses one letter for each game
+    //need to record multiple letter guesses
+    //need to run function again so computer chooses a new letter when game is over
