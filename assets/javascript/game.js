@@ -4,6 +4,9 @@ var wins = 0;
 var losses = 0;
 var guesses = 10;
 
+var lettersGuessed = [];
+    
+
 //computer chooses a random letter and records to console
 var computerChoice = letters[Math.floor(Math.random() * letters.length)];
 console.log(computerChoice);
@@ -14,12 +17,12 @@ var reset = function() {
     computerChoice = letters[Math.floor(Math.random() * letters.length)];
     console.log(computerChoice);
     guesses = 10;
+    lettersGuessed = [];
 }
 
 //event: user presses a key
 document.onkeyup = function(event) {
     var userGuess = event.key;
-    var lettersGuessed = [];
     lettersGuessed.push(userGuess);
 
     
@@ -43,7 +46,6 @@ document.onkeyup = function(event) {
     document.getElementById("winsNumber").textContent = "Wins: " + wins;
     document.getElementById("lossesNumber").textContent = "Losses: " + losses;
     document.getElementById("guessesNumber").textContent = "Number of Guesses Left: " + guesses;
-    
     document.getElementById("guessesLetter").textContent = "Letters Guessed: " +  lettersGuessed.join(', ');
 
     };
