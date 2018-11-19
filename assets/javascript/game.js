@@ -23,6 +23,12 @@ var reset = function() {
 //event: user presses a key
 document.onkeyup = function(event) {
     var userGuess = event.key;
+
+    if (letters.indexOf(userGuess) === -1 || lettersGuessed.indexOf(userGuess) !== -1 ) {
+        alert("Please choose valid key");
+        return;
+    }
+    
     lettersGuessed.push(userGuess);
 
     
